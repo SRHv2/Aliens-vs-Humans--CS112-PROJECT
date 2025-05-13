@@ -8,8 +8,9 @@ int main() {
     
     cout << "ALIENS VS HUMANS STRATEGY GAME\n";
     cout << "Select Mission:\n";
-    cout << "1. Human Defense (Survive 20 rounds)\n";
-    cout << "2. Alien Defense (Survive 20 rounds)\n";
+    cout << "1. Human Defense (Survive 15 rounds)\n";
+    cout << "2. Alien Defense (Survive 15 rounds)\n";
+    cout << "3. Team Deathmatch (Destroy the enemy)\n";
     cout << "Enter choice: ";
     
     int choice;
@@ -23,6 +24,9 @@ int main() {
             break;
         case 2:
             missionSuccess = MissionSystem::alienDefenseMission();
+            break;
+        case 3:
+            missionSuccess = MissionSystem::teamDeathmatch();
             break;
         default:
             cout << "Invalid choice!";

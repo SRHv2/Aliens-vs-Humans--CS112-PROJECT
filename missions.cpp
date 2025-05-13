@@ -61,3 +61,45 @@ bool MissionSystem::alienDefenseMission() {
     
     return runDefenseMission(aliens, humans, 15);
 }
+bool MissionSystem::teamDeathmatch() {
+    // Initialize factions with equal resources
+    HumanFaction humans(200);
+    AlienFaction aliens(200);
+    humans.addUnit(new Rifleman());
+    humans.addUnit(new Tank());
+    aliens.addUnit(new Zorg());
+    aliens.addUnit(new Clanker());
+
+    int round = 1;
+    const int maxrounds = 20; 
+
+    while (round <= maxrounds) {
+        cout << "\n\n=== ROUND " << round << " ===";
+        cout << "\n\n-- HUMAN TURN --";
+        humans.gatherResources();
+        humans.recruitMenu();
+
+        
+        cout << "\n\n-- ALIEN TURN --";
+        aliens.gatherResources();
+        aliens.recruitMenu();
+
+        cout << "\n\n-- COMBAT PHASE --";
+        CombatSystem::attack(humans, aliens);
+        CombatSystem::attack(aliens, humans);
+
+        if (aliens.getArmySize() == 0) {
+            cout << "\n\nVICTORY! Humans have wiped out the aliens!";
+            return true;
+        }
+        if (humans.getArmySize() == 0) {
+            cout << "\n\nDEFEAT! Aliens have wiped out the humans!";
+            return false;
+        }
+
+        round++;
+    }
+
+    cout << "\n\nSTALEMATE! Maximum rounds reached with both sides surviving!";
+    return false;
+}
