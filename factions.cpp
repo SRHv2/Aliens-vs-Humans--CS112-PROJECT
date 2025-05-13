@@ -6,7 +6,6 @@
 #include "factions.h"
 #include "missions.h"
 
-// HumanFaction implementations
 HumanFaction::HumanFaction(int startResources) : Faction("Humans", startResources) {}
 
 void HumanFaction::gatherResources() {
@@ -14,7 +13,7 @@ void HumanFaction::gatherResources() {
     addResources(gatheredresource); 
 }
 
-// AlienFaction implementations
+
 AlienFaction::AlienFaction(int startResources) : Faction("Aliens", startResources) {}
 
 void AlienFaction::gatherResources() {
