@@ -2,8 +2,8 @@
 #define BASECLASSES_H
 using namespace std;
 #include <iostream>
+#include <algorithm>
 #include <string>
-
 class Unit {
 protected:
     string name;
@@ -57,4 +57,4 @@ public:
     virtual void gatherResources() = 0;
 };
 
-#endif
+#endif  

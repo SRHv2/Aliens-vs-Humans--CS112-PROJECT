@@ -2,7 +2,8 @@
 #include "combat.h"
 #include <iostream>
 
-bool MissionSystem::runDefenseMission(Faction& defender, Faction& attacker, int rounds) {
+bool MissionSystem::runDefenseMission(Faction& defender, Faction& attacker, int rounds) { //private function to run the defense mission. called by the public functions
+    //done to avoid code duplication and make it easiert to call
     cout << "\n=== DEFENSE MISSION STARTED ===";
     cout << "\nDefender: " << defender.getName();
     cout << "\nAttacker: " << attacker.getName();
@@ -37,7 +38,7 @@ bool MissionSystem::runDefenseMission(Faction& defender, Faction& attacker, int 
 }
 
 bool MissionSystem::humanDefenseMission() {
-    HumanFaction humans(305);   //start off with 250 resources, after the entry 2
+    HumanFaction humans(305);   //start off with 250 resources, after the entry 2 units
     AlienFaction aliens(100);
     
     // Starting armies
@@ -50,7 +51,7 @@ bool MissionSystem::humanDefenseMission() {
 }
 
 bool MissionSystem::alienDefenseMission() {
-    AlienFaction aliens(305);  //start off with 250 resources, after the entry 2
+    AlienFaction aliens(305);  //start off with 250 resources, after the entry 2 units
     HumanFaction humans(100);
     
     // Starting armies
@@ -64,20 +65,20 @@ bool MissionSystem::alienDefenseMission() {
 bool MissionSystem::teamDeathmatch() {
 
     HumanFaction humans(200);
-    AlienFaction aliens(200);
+    AlienFaction aliens(200); //start off with 200 resources each after the entry 2 units
     humans.addUnit(new Rifleman());
     humans.addUnit(new Tank());
     aliens.addUnit(new Zorg());
     aliens.addUnit(new Clanker());
 
     int round = 1;
-    const int maxrounds = 20; 
+    const int maxrounds = 30; //to ensure game does not go on forever
 
     while (round <= maxrounds) {
         cout << "\n\n=== ROUND " << round << " ===";
         cout << "\n\n-- HUMAN TURN --";
         humans.gatherResources();
-        humans.recruitMenu();
+        humans.recruitMenu(); 
 
         
         cout << "\n\n-- ALIEN TURN --";

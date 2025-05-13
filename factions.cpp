@@ -9,7 +9,7 @@
 HumanFaction::HumanFaction(int startResources) : Faction("Humans", startResources) {}
 
 void HumanFaction::gatherResources() {
-     int gatheredresource= rand()%60+1;
+     int gatheredresource= rand()%60+1; // Randomly gather between 1 and 60 resources
     addResources(gatheredresource); 
 }
 
@@ -17,24 +17,24 @@ void HumanFaction::gatherResources() {
 AlienFaction::AlienFaction(int startResources) : Faction("Aliens", startResources) {}
 
 void AlienFaction::gatherResources() {
-    int gatheredresource= rand()%60+1;
+    int gatheredresource= rand()%60+1; // Randomly gather between 1 and 60 resources
     addResources(gatheredresource); 
 }
 void HumanFaction::recruitMenu() {
-    bool recruiting = true;
+    bool recruiting = true; // Flag to control recruitment loop
     
     while (recruiting && resources > 0) {
-        cout << "\n\nHuman Recruitment (Resources: " << resources << ")";
+        cout << "\n\nHuman Recruitment (Resources: " << resources << ")"; // Display current resources
         cout << "\n1. Rifleman (20 resources)";
-        cout << "\n2. Tank (35 resources)";
+        cout << "\n2. Tank (35 resources)";// Display available units for purchase
         cout << "\n3. Finish recruiting";
-        cout << "\nEnter choice: ";
+        cout << "\nEnter choice: "; // Prompt for user input 
         
         int choice;
         cin >> choice;
         
         switch(choice) {
-            case 1: {
+            case 1: { // Rifleman recruitment
                 const int unitCost = 20;
                 cout << "How many Riflemen? (Each costs " << unitCost << "): ";
                 int quantity;
@@ -49,7 +49,7 @@ void HumanFaction::recruitMenu() {
                  int totalCost = unitCost * quantity;
                 
                 
-                if (totalCost > resources) {
+                if (totalCost > resources) { 
                     cout << "Cannot afford " << quantity << " Riflemen! (Need: " << totalCost << ", Have: " << resources << ")";
                     break;
                 }
@@ -62,14 +62,15 @@ void HumanFaction::recruitMenu() {
                 // Deduct resources
                 resources -= totalCost;
                 
-                // Add units without spending
+                // Add units
                 for (int i = 0; i < quantity; i++) {
                     army[armySize++] = new Rifleman();
                 }
                 cout << "Successfully recruited " << quantity << " Riflemen";
                 break;
             }
-            case 2: {
+            case 2: { // Tank recruitment
+            
                 const int unitCost = 35;
                 cout << "How many Tanks? (Each costs " << unitCost << "): ";
                 int quantity;
@@ -121,7 +122,7 @@ void AlienFaction::recruitMenu() {
         cin >> choice;
         
         switch(choice) {
-            case 1: {
+            case 1: { // Zorg recruitment
                 const int unitCost = 20;
                 cout << "How many Zorgs? (Each costs " << unitCost << "): ";
                 int quantity;
@@ -150,21 +151,21 @@ void AlienFaction::recruitMenu() {
                 cout << "Successfully recruited " << quantity << " Zorgs";
                 break;
             }
-            case 2: {
+            case 2: { // Clanker recruitment
                 const int unitCost = 35;
                 cout << "How many Clankers? (Each costs " << unitCost << "): ";
                 int quantity;
-                std::cin >> quantity;
+                cin >> quantity;
                 
                 if (quantity <= 0) {
-                    std::cout << "Invalid quantity!";
+                    cout << "Invalid quantity!";
                     break;
                 }
                 
                 const int totalCost = unitCost * quantity;
                 
                 if (totalCost > resources) {
-                    std::cout << "Cannot afford " << quantity << " Clankers! (Need: " 
+                    cout << "Cannot afford " << quantity << " Clankers! (Need: " 
                               << totalCost << ", Have: " << resources << ")";
                     break;
                 }
@@ -177,14 +178,14 @@ void AlienFaction::recruitMenu() {
                 for (int i = 0; i < quantity; i++) {
                     army[armySize++] = new Clanker();
                 }
-                std::cout << "Successfully recruited " << quantity << " Clankers";
+                cout << "Successfully recruited " << quantity << " Clankers";
                 break;
             }
-            case 3:
+            case 3: // Finish recruiting
                 recruiting = false;
                 break;
             default:
-                std::cout << "Invalid choice!";
+                cout << "Invalid choice!";
         }
     }
 }

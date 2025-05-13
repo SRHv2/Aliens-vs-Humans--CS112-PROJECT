@@ -17,7 +17,7 @@ int main() {
     
     switch(choice) {
         case 1:
-            missionSuccess = MissionSystem::humanDefenseMission();
+            missionSuccess = MissionSystem::humanDefenseMission(); //run mission types
             break;
         case 2:
             missionSuccess = MissionSystem::alienDefenseMission();
