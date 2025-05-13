@@ -62,7 +62,7 @@ bool MissionSystem::alienDefenseMission() {
     return runDefenseMission(aliens, humans, 15);
 }
 bool MissionSystem::teamDeathmatch() {
-    // Initialize factions with equal resources
+
     HumanFaction humans(200);
     AlienFaction aliens(200);
     humans.addUnit(new Rifleman());
