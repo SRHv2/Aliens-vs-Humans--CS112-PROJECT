@@ -37,7 +37,7 @@ bool MissionSystem::runDefenseMission(Faction& defender, Faction& attacker, int 
 }
 
 bool MissionSystem::humanDefenseMission() {
-    HumanFaction humans(300);  // Triple resources
+    HumanFaction humans(305);   //start off with 250 resources, after the entry 2
     AlienFaction aliens(100);
     
     // Starting armies
@@ -46,11 +46,11 @@ bool MissionSystem::humanDefenseMission() {
     aliens.addUnit(new Zorg());
     aliens.addUnit(new Clanker());
     
-    return runDefenseMission(humans, aliens, 10);
+    return runDefenseMission(humans, aliens, 15);
 }
 
 bool MissionSystem::alienDefenseMission() {
-    AlienFaction aliens(300);  // Triple resources
+    AlienFaction aliens(305);  //start off with 250 resources, after the entry 2
     HumanFaction humans(100);
     
     // Starting armies
@@ -59,5 +59,5 @@ bool MissionSystem::alienDefenseMission() {
     humans.addUnit(new Rifleman());
     humans.addUnit(new Tank());
     
-    return runDefenseMission(aliens, humans, 10);
+    return runDefenseMission(aliens, humans, 15);
 }

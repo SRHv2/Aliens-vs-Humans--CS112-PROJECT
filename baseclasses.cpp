@@ -102,11 +102,18 @@ void Faction::distributeDamage(float totalDamage) {
         if (army[i]->getIsHeavy()) heavyCount++;
         else normalCount++;
     }
-    if (heavyCount!=0){
-     heavyDamage = totalDamage * 0.7f;
-     normalDamage = totalDamage * 0.3f;
+    if (heavyCount!=0 && normalCount!=0){
+     heavyDamage = totalDamage * 0.8f;
+     normalDamage = totalDamage * 0.2f;
     }
-    else normalDamage=totalDamage;
+    else if (heavyCount==0){
+        heavyDamage = 0;
+        normalDamage = totalDamage;
+    }
+    else if (normalCount==0){
+        heavyDamage = totalDamage;
+        normalDamage = 0;
+    }
     for (int i = 0; i < armySize; i++) {
         if (army[i]->getIsHeavy()) {
             float damage = heavyDamage / max(1, heavyCount);

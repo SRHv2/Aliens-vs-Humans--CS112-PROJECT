@@ -10,7 +10,7 @@
 HumanFaction::HumanFaction(int startResources) : Faction("Humans", startResources) {}
 
 void HumanFaction::gatherResources() {
-     int gatheredresource= rand()%40+1;
+     int gatheredresource= rand()%60+1;
     addResources(gatheredresource); 
 }
 
@@ -18,7 +18,7 @@ void HumanFaction::gatherResources() {
 AlienFaction::AlienFaction(int startResources) : Faction("Aliens", startResources) {}
 
 void AlienFaction::gatherResources() {
-    int gatheredresource= rand()%40+1;
+    int gatheredresource= rand()%60+1;
     addResources(gatheredresource); 
 }
 void HumanFaction::recruitMenu() {

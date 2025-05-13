@@ -8,8 +8,8 @@ int main() {
     
     cout << "ALIENS VS HUMANS STRATEGY GAME\n";
     cout << "Select Mission:\n";
-    cout << "1. Human Defense (Survive 10 rounds)\n";
-    cout << "2. Alien Defense (Survive 10 rounds)\n";
+    cout << "1. Human Defense (Survive 20 rounds)\n";
+    cout << "2. Alien Defense (Survive 20 rounds)\n";
     cout << "Enter choice: ";
     
     int choice;

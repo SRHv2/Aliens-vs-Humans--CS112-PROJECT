@@ -6,14 +6,14 @@
 
 class HumanFaction : public Faction {
 public:
-    HumanFaction(int startResources = 100);
+    HumanFaction(int startResources);
     void recruitMenu() override;
     void gatherResources() override;
 };
 
 class AlienFaction : public Faction {
 public:
-    AlienFaction(int startResources = 100);
+    AlienFaction(int startResources);
     void recruitMenu() override; 
     void gatherResources() override;
 };
