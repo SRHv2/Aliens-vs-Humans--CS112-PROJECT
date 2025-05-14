@@ -6,7 +6,7 @@
     ```bash
     g++ main.cpp baseclasses.cpp derivedclasses.cpp factions.cpp combat.cpp missions.cpp -o AvHGame
     ```
-2.  **Execute:** Run `./AvHGame` (Windows) or `.\AvHGame.exe` (Linux/macOS).
+2.  **Execute:** Run `./AvHGame.exe` (Windows) or `.\AvHGame.exe` (Linux/macOS).
 
 ## How to Play
 
